@@ -1,5 +1,10 @@
 from turtle import Turtle
 MOVE_QUANTITY = 20
+'''
+Snake class-
+responsible for creating and extending snake.
+responsible for moving the snake around.
+'''
 
 
 class Snake:
@@ -10,12 +15,18 @@ class Snake:
 
     def create_snake(self):
         for i in range(3):
-            turtle = Turtle("square")
-            turtle.penup()
-            turtle.speed("fastest")
-            turtle.goto((-20 * i, 0))
-            turtle.color("white")
-            self.body_parts.append(turtle)
+            self.add_body_part((-20 * i, 0))
+
+    def add_body_part(self, position):
+        turtle = Turtle("square")
+        turtle.penup()
+        turtle.speed("fastest")
+        turtle.goto(position)
+        turtle.color("white")
+        self.body_parts.append(turtle)
+
+    def extend_snake(self):
+        self.add_body_part(self.body_parts[-1].position())
 
     def move(self):
         for body_num in range(len(self.body_parts) - 1, 0, -1):

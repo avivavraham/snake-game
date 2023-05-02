@@ -1,5 +1,9 @@
 from turtle import Turtle
 import random
+'''
+snake food class-
+responsible for generating food for snake.
+'''
 
 
 class SnakeFood(Turtle):
