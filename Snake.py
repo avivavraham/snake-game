@@ -50,3 +50,10 @@ class Snake:
     def down(self):
         if self.head.heading() != 90:
             self.head.setheading(270)
+
+    def reset(self):
+        for body_part in self.body_parts:
+            body_part.goto((1000, 1000))
+        self.body_parts.clear()
+        self.create_snake()
+        self.head = self.body_parts[0]
